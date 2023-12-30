@@ -1,0 +1,65 @@
+.card {
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 15px;
+  min-width: fit-content;
+  width: 80%;
+  height: fit-content;
+  background-color: white;
+
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hidden {
+  display: none;
+}
+
+.showing {
+  display: block;
+}
+
+
+.doc-options {
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+
+}
+
+/* buttons at top of document */
+.doc-options>button {
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: white;
+  transition: all .4s ease;
+  cursor: pointer;
+}
+
+#download {
+  color: green;
+}
+#reset {
+  color: rgb(178, 40, 40);
+}
+
+#download:hover, #reset:hover {
+  scale: 1.1;
+  color: white;
+}
+#download:hover {
+  background-color: green;
+}
+#reset:hover {
+  background-color: rgb(178, 40, 40);   
+}
+
+#download:active, #reset:active {
+  scale: .98;
+}

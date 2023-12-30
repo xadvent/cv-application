@@ -1,0 +1,38 @@
+.inp-div {
+    height: min-content;
+    max-width: 250px;
+    width: 20vw;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+* {
+    margin: 0px;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 5px 0px 5px;
+}
+
+.title > h4 {
+    font-size: smaller;
+    color: grey;
+}
+
+#form {
+    align-items: center;  
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
