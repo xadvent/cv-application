@@ -1,9 +1,9 @@
 import { useState } from "react";
+import propTypes from 'prop-types'
 import './Card.css'
 
-export default function Card({ children, name, expandable = false, title }) {
+export default function Card({ children, name, expandable, title}) {
     const [expanded, setExpanded] = useState(false);
-
     const show = function (e) {
         let container = e.target.parentElement.parentElement;
         container = container.querySelector('.expand-container');
@@ -33,3 +33,10 @@ export default function Card({ children, name, expandable = false, title }) {
         </div>
     );
 }
+
+Card.propTypes = {
+    children: propTypes.node,
+    name: propTypes.string,
+    expandable: propTypes.bool,
+    title: propTypes.string,
+};

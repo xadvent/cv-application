@@ -1,6 +1,6 @@
 #right-side {
   grid-column: 3;
-  background-color: darkcyan;
+  /* background-color: darkcyan; */
 }
 
 #left-side {
