@@ -1,21 +1,7 @@
-import './Form.css'
+import './Form.css';
 import propTypes from 'prop-types'
+import CreateInput from './CreateInput';
 
-function CreateInput({ field, recommended = false, type = 'text', settingFunction}){
-
-    return (
-        <div className="inp-div">
-            <div className="title">
-                <h3>{field}</h3>
-                <h4 color="white">{recommended ? 'recommended' : ''}</h4>
-
-            </div>
-            <input type={type} onChange={(e) => {
-                settingFunction(e.target.value);
-            }}></input>
-        </div>
-    );
-}
 
 export default function Form({setName, setMail, setPhone, setAddress}) {
 
@@ -29,13 +15,6 @@ export default function Form({setName, setMail, setPhone, setAddress}) {
             </div>
     );
 }
-
-CreateInput.propTypes = {
-    field: propTypes.string,
-    recommended: propTypes.bool,
-    type: propTypes.string,
-    settingFunction: propTypes.func
-};
 
 Form.propTypes = {
     setName: propTypes.func,

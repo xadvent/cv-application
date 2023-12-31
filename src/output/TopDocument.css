@@ -1,0 +1,24 @@
+#header {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+    background-color: #0E374E;
+    color: #FFFFFF;
+}
+
+#contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.header-info {
+    font-size: 13px;
+    font-weight: 400;
+    display: flex;
+    gap: 5px;
+}
+

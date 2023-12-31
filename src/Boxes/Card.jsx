@@ -1,6 +1,6 @@
 import { useState } from "react";
-import propTypes from 'prop-types'
-import './Card.css'
+import propTypes from 'prop-types';
+import './Card.css';
 
 export default function Card({ children, name, expandable, title}) {
     const [expanded, setExpanded] = useState(false);
