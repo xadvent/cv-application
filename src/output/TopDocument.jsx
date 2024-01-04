@@ -1,7 +1,7 @@
 import './TopDocument.css';
 import propTypes from 'prop-types';
 
-export default function TopDocument({ name, email, phone, address }) {
+export default function TopDocument({ name, email, phone = null, address }) {
 
     return (
         <div id="header">
@@ -27,6 +27,6 @@ export default function TopDocument({ name, email, phone, address }) {
 TopDocument.propTypes = {
     name: propTypes.string,
     email: propTypes.string,
-    phone: propTypes.number,
+    phone: propTypes.string,
     address: propTypes.string,
 }

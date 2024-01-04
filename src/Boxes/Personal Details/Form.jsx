@@ -1,6 +1,6 @@
 import './Form.css';
 import propTypes from 'prop-types'
-import CreateInput from './CreateInput';
+import CreateInput from '../General Functions/CreateInput';
 
 
 export default function Form({setName, setMail, setPhone, setAddress}) {
