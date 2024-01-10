@@ -2,24 +2,35 @@ import { useState } from "react";
 import propTypes from 'prop-types';
 import CreateInput from "../General Functions/CreateInput";
 
-export default function EducationList() {
+export default function EducationList({ allEducation, setAllEducation}) {
     const [formVisible, setFormVisible] = useState(false);
+
+    const displayItems = () => {
+        if (allEducation) {
+            return allEducation.map((item, index) => (
+                <div key={index} className="education-item">
+                    {item.school} - {item.degree}
+                </div>
+            ));
+        }
+        return
+    };
 
     return (
         <div id="education-list">
-            <button
-                id={'new-education-button'}
-                className={''}
-                onClick={() => setFormVisible(!formVisible)}
-            >
-                +
-            </button>
-            {formVisible && <EducationForm setFormVisible={setFormVisible} />}
+            {!formVisible && displayItems()}
+            {/* {!formVisible && displayItems()}  */}
+            {/* issue arises here */}
+
+            {!formVisible && (
+                <button id={'new-education-button'} onClick={() => setFormVisible(true)} >+</button>
+            )}
+            {formVisible && <EducationForm setFormVisible={setFormVisible} setList={setAllEducation} items={allEducation} />}
         </div>
     );
 }
 
-function EducationForm({ setFormVisible, setTotal }) {
+function EducationForm({ setFormVisible, setList, items }) {
     const [school, setSchool] = useState('');
     const [degree, setDegree] = useState('');
     const [startDate, setStartDate] = useState('');
@@ -34,13 +45,7 @@ function EducationForm({ setFormVisible, setTotal }) {
             <CreateInput field={'End Date'} settingFunction={setEndDate} />
             <CreateInput field={'Location'} settingFunction={setLocation} optional />
             <button onClick={() => {
-                setTotal({
-                    school,
-                    degree,
-                    startDate,
-                    endDate,
-                    location
-                });
+                setList([...items, { school, degree, startDate, endDate, location }]);
                 setFormVisible(false);
             }}>Submit</button>
             <button onClick={() => setFormVisible(false)}>
@@ -50,7 +55,13 @@ function EducationForm({ setFormVisible, setTotal }) {
     );
 }
 
+EducationList.propTypes = {
+    allEducation: propTypes.array,
+    setAllEducation: propTypes.func
+}
+
 EducationForm.propTypes = {
-    setTotal: propTypes.func.isRequired,
-    setFormVisible: propTypes.func.isRequired
+    setFormVisible: propTypes.func.isRequired,
+    setList: propTypes.func.isRequired,
+    items: propTypes.array.isRequired
 };

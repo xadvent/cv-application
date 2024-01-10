@@ -2,6 +2,9 @@ import './TopDocument.css';
 import propTypes from 'prop-types';
 
 export default function TopDocument({ name, email, phone = null, address }) {
+    if(phone) {
+        phone = '+1 (' + phone.slice(0, 3) + ') ' + phone.slice(3,6) + '-' + phone.slice(6)
+    }
 
     return (
         <div id="header">

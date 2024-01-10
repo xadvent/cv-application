@@ -10,7 +10,7 @@ export default function App() {
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [address, setAddress] = useState('');
-  const [education, setEducation] = useState(null);
+  const [education, setEducation] = useState([]);
   const [workExperience, setWorkExperience] = useState([]);
 
   const buttonStyle = {
@@ -40,7 +40,7 @@ export default function App() {
 
 
         <Card name={'form-options'} title={'Education'} expandable={true} >
-          <EducationForm setTotal={setEducation} />
+          <EducationForm allEducation={education} setAllEducation={setEducation}/> 
         </Card>
 
         <Card name={'form-options'} title={'Experience'} expandable={true} >
