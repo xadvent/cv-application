@@ -1,10 +1,18 @@
 import './TopDocument.css';
+import Icon from '@mdi/react'
+import { mdiPhone, mdiEmailOutline, mdiMapMarkerOutline } from '@mdi/js';
 import propTypes from 'prop-types';
 
-export default function TopDocument({ name, email, phone = null, address }) {
+export default function TopDocument({ name, email, phone, address }) {
     if (phone) {
         phone = '+1 (' + phone.slice(0, 3) + ') ' + phone.slice(3, 6) + '-' + phone.slice(6)
     }
+
+    const moveUp = {
+        top: -2 + 'px',
+        position: 'relative',
+        width: 20 +'px',
+    };
 
     return (
         <div id="header">
@@ -13,7 +21,7 @@ export default function TopDocument({ name, email, phone = null, address }) {
                 {
                     email != '' ?
                         <div className="header-info">
-                            <img src="#" />
+                            <Icon className='icon' path={mdiEmailOutline} style={moveUp} />
                             <p>{email}</p>
                         </div>
                         : null
@@ -21,7 +29,7 @@ export default function TopDocument({ name, email, phone = null, address }) {
                 {
                     phone != '' ?
                         <div className="header-info">
-                            <img src="#" />
+                            <Icon className='icon' path={mdiPhone} style={moveUp} />
                             <p>{phone}</p>
                         </div>
                         : null
@@ -29,7 +37,7 @@ export default function TopDocument({ name, email, phone = null, address }) {
                 {
                     address != '' ?
                         <div className="header-info">
-                            <img src="#" />
+                            <Icon className='icon' path={mdiMapMarkerOutline} style={moveUp} />
                             <p>{address}</p>
                         </div>
                         : null
