@@ -19,9 +19,6 @@ export default function EducationList({ allEducation, setAllEducation}) {
     return (
         <div id="education-list">
             {!formVisible && displayItems()}
-            {/* {!formVisible && displayItems()}  */}
-            {/* issue arises here */}
-
             {!formVisible && (
                 <button id={'new-education-button'} onClick={() => setFormVisible(true)} >+</button>
             )}
@@ -58,7 +55,7 @@ function EducationForm({ setFormVisible, setList, items }) {
 EducationList.propTypes = {
     allEducation: propTypes.array,
     setAllEducation: propTypes.func
-}
+};
 
 EducationForm.propTypes = {
     setFormVisible: propTypes.func.isRequired,

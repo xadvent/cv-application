@@ -1,8 +1,9 @@
 import Form from './Boxes/Personal Details/Form'
 import EducationForm from './Boxes/Education/EducationForm';
-import Card from './Boxes/General Functions/Card'
+import EducationDocument from './Boxes/Education/EducationDocument';
+import Card from './Boxes/General Functions/Card';
 import TopDocument from './output/TopDocument';
-import './App.css'
+import './App.css';
 import { useState } from 'react';
 
 export default function App() {
@@ -24,8 +25,8 @@ export default function App() {
         <Card name={'doc-options'} >
 
           <button style={buttonStyle} id='reset' onClick={() => {
-            setFullName(''); setEmail(''); setPhone(''); setAddress('');
-            document.querySelectorAll('input').forEach(target => target.value = '')
+            setFullName(''); setEmail(''); setPhone(''); setAddress(''); setEducation([]); setWorkExperience([]);
+            document.querySelectorAll('input').forEach(target => target.value = '');
           }}>Clear Resume</button>
 
           <button style={buttonStyle} id='download' onClick={() => {
@@ -58,7 +59,7 @@ export default function App() {
             education={education}
             experience={workExperience}
           />
-          <div id="education"></div>
+          <EducationDocument id={'education'} info={education} />
           <div id="work-experience"></div>
         </div>
       </div>
