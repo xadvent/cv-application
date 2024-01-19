@@ -1,9 +1,9 @@
-import Form from './Boxes/Personal Details/Form'
+import './App.css';
+import Card from './Boxes/General Functions/Card';
 import EducationForm from './Boxes/Education/EducationForm';
 import EducationDocument from './Boxes/Education/EducationDocument';
-import Card from './Boxes/General Functions/Card';
+import Form from './Boxes/Personal Details/Form'
 import TopDocument from './output/TopDocument';
-import './App.css';
 import { useState } from 'react';
 
 export default function App() {

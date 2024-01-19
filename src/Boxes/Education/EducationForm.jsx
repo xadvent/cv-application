@@ -4,6 +4,7 @@ import CreateInput from "../General Functions/CreateInput";
 
 export default function EducationList({ allEducation, setAllEducation }) {
     const [formVisible, setFormVisible] = useState(false);
+    const [editingIndex, setEditingIndex] = useState(null);
 
     const handleDelete = (index) => {
         if (allEducation) {
@@ -12,11 +13,17 @@ export default function EducationList({ allEducation, setAllEducation }) {
         }
     };
 
+    const handleEdit = (index) => {
+        setFormVisible(true);
+        setEditingIndex(index);
+    }
+
     const displayItems = () => {
         if (allEducation) {
             return allEducation.map((item, index) => (
                 <div key={index} className="education-item">
                     {item.school} - {item.degree}
+                    <button onClick={() => handleEdit(index)}>Edit</button>
                     <button onClick={() => handleDelete(index)}>X</button>
                 </div>
             ));
@@ -30,32 +37,54 @@ export default function EducationList({ allEducation, setAllEducation }) {
             {!formVisible && (
                 <button id={'new-education-button'} onClick={() => setFormVisible(true)} >+</button>
             )}
-            {formVisible && <EducationForm setFormVisible={setFormVisible} setList={setAllEducation} items={allEducation} />}
+            {
+                formVisible && <EducationForm setFormVisible={setFormVisible}
+                    setList={setAllEducation}
+                    items={allEducation}
+                    preFilled={editingIndex !== null ? allEducation[editingIndex] : null}
+                    isAdding={editingIndex === null} // True when opening reg, false when editing
+                    setEditingIndex={setEditingIndex}
+                />
+            }
         </div>
     );
 }
 
-function EducationForm({ setFormVisible, setList, items }) {
-    const [school, setSchool] = useState('');
-    const [degree, setDegree] = useState('');
-    const [startDate, setStartDate] = useState('');
-    const [endDate, setEndDate] = useState('');
-    const [location, setLocation] = useState('');
+function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdding, setEditingIndex }) {
+    useState(preFilled ? preFilled : '');
+
+    const [school, setSchool] = useState(!isAdding || preFilled ? preFilled.school : '');
+    const [degree, setDegree] = useState(!isAdding || preFilled ? preFilled.degree : '');
+    const [startDate, setStartDate] = useState(!isAdding || preFilled ? preFilled.startDate : '');
+    const [endDate, setEndDate] = useState(!isAdding || preFilled ? preFilled.endDate : '');
+    const [location, setLocation] = useState(!isAdding || preFilled ? preFilled.location : '');
+
+    const handleSubmit = () => {
+        const newItem = { school, degree, startDate, endDate, location };
+        if (preFilled !== null) {
+            const updatedItems = items.map((item, idx) => idx === items.indexOf(preFilled) ? newItem : item);
+            setList(updatedItems);
+        } else {
+            setList([...items, newItem]);
+        }
+        setEditingIndex(null);
+        setFormVisible(false);
+    }
 
     return (
         <div id="education-form">
-            <CreateInput field={'School'} settingFunction={setSchool} />
-            <CreateInput field={'Degree'} settingFunction={setDegree} />
-            <CreateInput field={'Start Date'} settingFunction={setStartDate} />
-            <CreateInput field={'End Date'} settingFunction={setEndDate} />
-            <CreateInput field={'Location'} settingFunction={setLocation} optional />
+            <CreateInput field={'School'} value={school} settingFunction={setSchool} />
+            <CreateInput field={'Degree'} value={degree} settingFunction={setDegree} />
+            <CreateInput field={'Start Date'} value={startDate} settingFunction={setStartDate} />
+            <CreateInput field={'End Date'} value={endDate} settingFunction={setEndDate} />
+            <CreateInput field={'Location'} value={location} settingFunction={setLocation} optional />
+
+            <button onClick={handleSubmit}>Submit</button>
             <button onClick={() => {
-                setList([...items, { school, degree, startDate, endDate, location }]);
                 setFormVisible(false);
-            }}>Submit</button>
-            <button onClick={() => setFormVisible(false)}>
-                Cancel
-            </button>
+                setEditingIndex(null);
+            }
+            }>Cancel</button>
         </div>
     );
 }
@@ -68,5 +97,8 @@ EducationList.propTypes = {
 EducationForm.propTypes = {
     setFormVisible: propTypes.func.isRequired,
     setList: propTypes.func.isRequired,
-    items: propTypes.array.isRequired
+    items: propTypes.array.isRequired,
+    preFilled: propTypes.any,
+    isAdding: propTypes.bool,
+    setEditingIndex: propTypes.func
 };
