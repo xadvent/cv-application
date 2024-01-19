@@ -1,12 +1,10 @@
-import propTypes from 'prop-types'
-import './educationDocument.css'
+import propTypes from 'prop-types';
+import './educationDocument.css';
 
 export default function EducationDocument({ info }) {
-
-    info = info.map((thing, index) => showInformation(thing, index))
+    info = info.map((thing, index) => showInformation(thing, index));
 
     function showInformation(item, index) {
-
         return (
             <div key={index} className="education-item" >
                 <div className="left-education">

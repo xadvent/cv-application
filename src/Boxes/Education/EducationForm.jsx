@@ -2,14 +2,22 @@ import { useState } from "react";
 import propTypes from 'prop-types';
 import CreateInput from "../General Functions/CreateInput";
 
-export default function EducationList({ allEducation, setAllEducation}) {
+export default function EducationList({ allEducation, setAllEducation }) {
     const [formVisible, setFormVisible] = useState(false);
+
+    const handleDelete = (index) => {
+        if (allEducation) {
+            const newEducationList = allEducation.filter((_, idx) => idx !== index);
+            setAllEducation(newEducationList);
+        }
+    };
 
     const displayItems = () => {
         if (allEducation) {
             return allEducation.map((item, index) => (
                 <div key={index} className="education-item">
                     {item.school} - {item.degree}
+                    <button onClick={() => handleDelete(index)}>X</button>
                 </div>
             ));
         }
