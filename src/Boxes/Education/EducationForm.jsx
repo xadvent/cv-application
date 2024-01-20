@@ -6,12 +6,13 @@ export default function EducationList({ allEducation, setAllEducation }) {
     const [formVisible, setFormVisible] = useState(false);
     const [editingIndex, setEditingIndex] = useState(null);
 
-    const handleDelete = (index) => {
-        if (allEducation) {
-            const newEducationList = allEducation.filter((_, idx) => idx !== index);
-            setAllEducation(newEducationList);
-        }
-    };
+    // const handleDelete = (index) => {
+    //     if (allEducation) {
+    //         const newEducationList = allEducation.filter((_, idx) => idx !== index);
+    //         setAllEducation(newEducationList);
+    //     }
+    // };
+    // alternate position for the delete button
 
     const handleEdit = (index) => {
         setFormVisible(true);
@@ -24,7 +25,8 @@ export default function EducationList({ allEducation, setAllEducation }) {
                 <div key={index} className="education-item">
                     {item.school} - {item.degree}
                     <button onClick={() => handleEdit(index)}>Edit</button>
-                    <button onClick={() => handleDelete(index)}>X</button>
+                    {/* <button onClick={() => handleDelete(index)}>X</button> */}
+                    {/* alternate position for button */}
                 </div>
             ));
         }
@@ -59,6 +61,17 @@ function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdd
     const [endDate, setEndDate] = useState(!isAdding || preFilled ? preFilled.endDate : '');
     const [location, setLocation] = useState(!isAdding || preFilled ? preFilled.location : '');
 
+    const resetForm = () => {
+        setEditingIndex(null)
+        setFormVisible(false)
+    }
+
+    const handleDelete = () => {
+        const newUpdatedItems = items.filter((item, idx) => idx !== items.indexOf(preFilled));
+        setList(newUpdatedItems);
+        resetForm();
+    }
+
     const handleSubmit = () => {
         const newItem = { school, degree, startDate, endDate, location };
         if (preFilled !== null) {
@@ -67,8 +80,7 @@ function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdd
         } else {
             setList([...items, newItem]);
         }
-        setEditingIndex(null);
-        setFormVisible(false);
+        resetForm();
     }
 
     return (
@@ -79,12 +91,13 @@ function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdd
             <CreateInput field={'End Date'} value={endDate} settingFunction={setEndDate} />
             <CreateInput field={'Location'} value={location} settingFunction={setLocation} optional />
 
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={() => {
-                setFormVisible(false);
-                setEditingIndex(null);
+            {
+                preFilled && !isAdding ?
+                    <button onClick={handleDelete}>Delete</button>
+                    : null
             }
-            }>Cancel</button>
+            <button onClick={handleSubmit}>Submit</button>
+            <button onClick={resetForm}>Cancel</button>
         </div>
     );
 }
