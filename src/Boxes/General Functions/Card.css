@@ -17,14 +17,6 @@
   justify-content: space-between;
 }
 
-.hidden {
-  display: none;
-}
-
-.showing {
-  display: block;
-}
-
 .doc-options {
   display: flex;
   justify-content: space-around;
@@ -43,23 +35,52 @@
 }
 
 #download {
-  color: green;
+  color: #187FF5;
 }
 #reset {
-  color: rgb(178, 40, 40);
+  color: #7E94A1;
 }
 
 #download:hover, #reset:hover {
-  scale: 1.1;
+  scale: 1.05;
   color: white;
 }
 #download:hover {
-  background-color: green;
+  background-color: #187FF5;
 }
 #reset:hover {
-  background-color: rgb(178, 40, 40);   
+  background-color: #7E94A1;   
 }
 
 #download:active, #reset:active {
   scale: .98;
+}
+
+.open-close {
+  width: 20px;
+  height: 20px;
+  display: flex;
+}
+
+.left-card-icon, .right-card-icon {
+  height: 20px;
+  width: 2px;
+  border-radius: 5px;
+  background-color: #7E94A1;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.left-card-icon.show {
+  transform: rotateZ(0deg) translateX(-3.5px) rotateZ(-30deg) ;
+}
+.right-card-icon.show {
+  transform: rotateZ(0deg)  translateX(3.5px) rotateZ(30deg) ;
+}
+
+.left-card-icon.close {
+  transform:  translateX(-3.5px) rotateZ(30deg) ;
+}
+.right-card-icon.close {
+  transform:  translateX(3.5px) rotateZ(-30deg) ;
 }
