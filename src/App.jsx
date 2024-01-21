@@ -5,6 +5,7 @@ import EducationDocument from './Boxes/Education/EducationDocument';
 import Form from './Boxes/Personal Details/Form'
 import TopDocument from './output/TopDocument';
 import { useState } from 'react';
+import ExperienceForm from './Boxes/Experience/ExperienceForm';
 
 export default function App() {
   const [fullName, setFullName] = useState('');
@@ -30,7 +31,7 @@ export default function App() {
           }}>Clear Resume</button>
 
           <button style={buttonStyle} id='download' onClick={() => {
-            alert(education)
+            console.log(workExperience)
           }}>Download Resume</button>
 
         </Card>
@@ -41,11 +42,11 @@ export default function App() {
 
 
         <Card name={'form-options'} title={'Education'} expandable={true} >
-          <EducationForm allEducation={education} setAllEducation={setEducation}/> 
+          <EducationForm allEducation={education} setAllEducation={setEducation} />
         </Card>
 
         <Card name={'form-options'} title={'Experience'} expandable={true} >
-          insert relevant experience
+          <ExperienceForm experience={workExperience} setExperience={setWorkExperience} />
         </Card>
       </div>
 
@@ -59,8 +60,9 @@ export default function App() {
             education={education}
             experience={workExperience}
           />
-          <EducationDocument id={'education'} info={education} />
-          <div id="work-experience"></div>
+          <div id="work-experience">
+            <EducationDocument id={'education'} info={education} />
+          </div>
         </div>
       </div>
     </>

@@ -11,6 +11,7 @@ export default function CreateInput({ field, recommended = false, optional = fal
                 type={type}
                 onChange={(e) => settingFunction(e.target.value)}
                 value={value}
+                name={field}
             />
         </div>
     );

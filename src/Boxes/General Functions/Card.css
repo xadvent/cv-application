@@ -37,6 +37,10 @@
   cursor: pointer;
 }
 
+#form>h2 {
+  cursor: default;
+}
+
 #download {
   color: #187FF5;
 }
@@ -88,4 +92,88 @@
 }
 .right-card-icon.close {
   transform:  translateX(3.5px) rotateZ(-30deg) ;
+}
+
+.item-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+#new-education-button,
+#new-experience-button,
+.item-list>button {
+    border-radius: 10px;
+    background-color: white;
+    transition: all 0.5s ease;
+}
+
+.item-list>button {
+    padding: 3px 5px;
+    border: 3px solid #EEF0F4;
+}
+
+#new-education-button,
+#new-experience-button {
+    padding: 10px 10px;
+    border: 5px solid #EEF0F4;
+}
+
+button {
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#new-education-button:hover {
+    scale: 1.05;
+    background-color: #187FF5;
+    color: white;
+}
+
+.item-list>button:hover {
+    scale: 1.1;
+    color: white;
+    background-color: #7E94A1;
+    border-color: #7E94A1;
+}
+
+.button-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 10px;
+}
+
+.button-div > button {
+    width: 80px;
+    padding: 10px 5px;
+    border-radius: 10px;
+    border: 3px solid #EEF0F4;
+    background-color: white;
+    transition: all 0.5s ease;
+}
+
+.delete-button:hover,
+.submit-button:hover,
+.cancel-button:hover {
+    scale: 1.05;
+}
+
+.submit-button {
+    grid-column: 2/3;
+}
+
+.delete-button:hover {
+    background-color: red;
+    color: white;
+}
+
+.submit-button:hover {
+    background-color: #187FF5;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #7E94A1;
+    color: white;
 }

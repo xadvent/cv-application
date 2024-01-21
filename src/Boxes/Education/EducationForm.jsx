@@ -21,7 +21,7 @@ export default function EducationList({ allEducation, setAllEducation }) {
     const displayItems = () => {
         if (allEducation) {
             return allEducation.map((item, index) => (
-                <div key={index} className="education-item-list">
+                <div key={index} className="item-list">
                     <p><b>{item.school}</b> - {item.degree}</p>
                     <button onClick={() => handleEdit(index)}>Edit</button>
                 </div>
@@ -37,11 +37,12 @@ export default function EducationList({ allEducation, setAllEducation }) {
                 <button id={'new-education-button'} style={buttonStyle} onClick={() => setFormVisible(true)} >+ Add New</button>
             )}
             {
-                formVisible && <EducationForm setFormVisible={setFormVisible}
+                formVisible && <EducationForm 
                     setList={setAllEducation}
                     items={allEducation}
                     preFilled={editingIndex !== null ? allEducation[editingIndex] : null}
-                    isAdding={editingIndex === null} // True when opening reg, false when editing
+                    isAdding={editingIndex == null} // True when opening reg, false when editing
+                    setFormVisible={setFormVisible}
                     setEditingIndex={setEditingIndex}
                 />
             }
@@ -64,7 +65,7 @@ function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdd
     }
 
     const handleDelete = () => {
-        const newUpdatedItems = items.filter((item, idx) => idx !== items.indexOf(preFilled));
+        const newUpdatedItems = items.filter((_, idx) => idx !== items.indexOf(preFilled));
         setList(newUpdatedItems);
         resetForm();
     }
@@ -88,14 +89,14 @@ function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdd
             <CreateInput field={'End Date'} value={endDate} settingFunction={setEndDate} />
             <CreateInput field={'Location'} value={location} settingFunction={setLocation} optional />
 
-            <div id="education-button-div">
+            <div className="button-div">
                 {
                     preFilled && !isAdding ?
-                        <button id='delete-education' onClick={handleDelete}>Delete</button>
+                        <button className='delete-button' onClick={handleDelete}>Delete</button>
                         : null
                 }
-                <button id='submit-education' onClick={handleSubmit}>Submit</button>
-                <button id='cancel-education' onClick={resetForm}>Cancel</button>
+                <button className='submit-button' onClick={handleSubmit}>Submit</button>
+                <button className='cancel-button' onClick={resetForm}>Cancel</button>
             </div>
         </div>
     );
