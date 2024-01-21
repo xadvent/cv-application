@@ -11,7 +11,8 @@ export default function CreateInput({ field, recommended = false, optional = fal
                 type={type}
                 onChange={(e) => settingFunction(e.target.value)}
                 value={value}
-                name={field}
+                name={field == 'description' ? 'descr' : field}
+                // for some reason, 'description' as a name makes a pop-up
             />
         </div>
     );

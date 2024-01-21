@@ -1,4 +1,4 @@
-import './Form.css';
+import '../../CSS/Form.css'
 import propTypes from 'prop-types'
 import CreateInput from '../General Functions/CreateInput';
 

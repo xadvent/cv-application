@@ -1,4 +1,4 @@
-import './education.css'
+import '../../CSS/education.css'
 import { useState } from "react";
 import propTypes from 'prop-types';
 import CreateInput from "../General Functions/CreateInput";

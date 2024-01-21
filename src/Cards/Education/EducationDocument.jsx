@@ -1,5 +1,5 @@
+import '../../CSS/educationDocument.css';
 import propTypes from 'prop-types';
-import './educationDocument.css';
 
 export default function EducationDocument({ info }) {
     info = info.map((thing, index) => showInformation(thing, index));
@@ -28,5 +28,5 @@ export default function EducationDocument({ info }) {
 }
 
 EducationDocument.propTypes = {
-    info: propTypes.array
+    info: propTypes.array,
 }
