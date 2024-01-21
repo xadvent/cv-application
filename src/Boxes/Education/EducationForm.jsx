@@ -1,3 +1,4 @@
+import './education.css'
 import { useState } from "react";
 import propTypes from 'prop-types';
 import CreateInput from "../General Functions/CreateInput";
@@ -6,13 +7,11 @@ export default function EducationList({ allEducation, setAllEducation }) {
     const [formVisible, setFormVisible] = useState(false);
     const [editingIndex, setEditingIndex] = useState(null);
 
-    // const handleDelete = (index) => {
-    //     if (allEducation) {
-    //         const newEducationList = allEducation.filter((_, idx) => idx !== index);
-    //         setAllEducation(newEducationList);
-    //     }
-    // };
-    // alternate position for the delete button
+    const buttonStyle = {
+        margin: '10px' + ' ' + 0 + 'px' + ' ' + 0 + 'px' + ' ' + 0 + 'px',
+        position: 'relative',
+        left: 90 + 'px',
+    }
 
     const handleEdit = (index) => {
         setFormVisible(true);
@@ -22,11 +21,9 @@ export default function EducationList({ allEducation, setAllEducation }) {
     const displayItems = () => {
         if (allEducation) {
             return allEducation.map((item, index) => (
-                <div key={index} className="education-item">
-                    {item.school} - {item.degree}
+                <div key={index} className="education-item-list">
+                    <p><b>{item.school}</b> - {item.degree}</p>
                     <button onClick={() => handleEdit(index)}>Edit</button>
-                    {/* <button onClick={() => handleDelete(index)}>X</button> */}
-                    {/* alternate position for button */}
                 </div>
             ));
         }
@@ -37,7 +34,7 @@ export default function EducationList({ allEducation, setAllEducation }) {
         <div id="education-list">
             {!formVisible && displayItems()}
             {!formVisible && (
-                <button id={'new-education-button'} onClick={() => setFormVisible(true)} >+</button>
+                <button id={'new-education-button'} style={buttonStyle} onClick={() => setFormVisible(true)} >+ Add New</button>
             )}
             {
                 formVisible && <EducationForm setFormVisible={setFormVisible}
@@ -62,8 +59,8 @@ function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdd
     const [location, setLocation] = useState(!isAdding || preFilled ? preFilled.location : '');
 
     const resetForm = () => {
-        setEditingIndex(null)
-        setFormVisible(false)
+        setEditingIndex(null);
+        setFormVisible(false);
     }
 
     const handleDelete = () => {
@@ -91,13 +88,15 @@ function EducationForm({ setFormVisible, setList, items, preFilled = null, isAdd
             <CreateInput field={'End Date'} value={endDate} settingFunction={setEndDate} />
             <CreateInput field={'Location'} value={location} settingFunction={setLocation} optional />
 
-            {
-                preFilled && !isAdding ?
-                    <button onClick={handleDelete}>Delete</button>
-                    : null
-            }
-            <button onClick={handleSubmit}>Submit</button>
-            <button onClick={resetForm}>Cancel</button>
+            <div id="education-button-div">
+                {
+                    preFilled && !isAdding ?
+                        <button id='delete-education' onClick={handleDelete}>Delete</button>
+                        : null
+                }
+                <button id='submit-education' onClick={handleSubmit}>Submit</button>
+                <button id='cancel-education' onClick={resetForm}>Cancel</button>
+            </div>
         </div>
     );
 }
