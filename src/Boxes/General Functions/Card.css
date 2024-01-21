@@ -16,6 +16,9 @@
   align-items: center;
   justify-content: space-between;
 }
+.card-title {
+  cursor: default;
+}
 
 .doc-options {
   display: flex;
@@ -57,9 +60,11 @@
 }
 
 .open-close {
-  width: 20px;
+  width: 40px;
   height: 20px;
   display: flex;
+  cursor: pointer;
+  justify-content: center;
 }
 
 .left-card-icon, .right-card-icon {
