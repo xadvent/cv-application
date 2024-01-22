@@ -1,11 +1,12 @@
 import './CSS/App.css';
 import Card from './Cards/General Functions/Card';
 import EducationForm from './Cards/Education/EducationForm';
-import EducationDocument from './Cards/Education/EducationDocument';
+import EducationDocument from './output/EducationDocument';
 import Form from './Cards/Personal Details/Form'
 import TopDocument from './output/TopDocument';
 import { useState } from 'react';
 import ExperienceForm from './Cards/Experience/ExperienceForm';
+import ExperienceSection from './output/ExperienceSection';
 
 export default function App() {
   const [fullName, setFullName] = useState('');
@@ -60,8 +61,9 @@ export default function App() {
             education={education}
             experience={workExperience}
           />
-          <div id="work-experience">
+          <div id="content">
             <EducationDocument id={'education'} info={education} />
+            <ExperienceSection experience={workExperience} />
           </div>
         </div>
       </div>

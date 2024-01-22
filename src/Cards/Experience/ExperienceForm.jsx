@@ -70,7 +70,7 @@ function ExperienceForm({ setFormVisible, setList, items, preFilled = null, isAd
     }
 
     const handleSubmit = () => {
-        const newItem = { name, title, startDate, endDate, location };
+        const newItem = { name, title, startDate, endDate, location, description };
         if (preFilled !== null) {
             const updatedItems = items.map((item, idx) => idx === items.indexOf(preFilled) ? newItem : item);
             setList(updatedItems);

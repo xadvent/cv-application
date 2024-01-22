@@ -18,6 +18,10 @@
 #doc {
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
   width: 637.5px;
   height: 825px;
   background-color: white;
@@ -25,6 +29,17 @@
   box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.4);
 }
 
+#doc>div{
+  width: 100%;
+}
+
 .expand-icon {
   cursor: pointer;
 }
+
+#content {
+  margin: 0px 10px;
+  display: flex;
+  flex-direction: column;
+}
+

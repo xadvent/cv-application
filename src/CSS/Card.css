@@ -125,7 +125,8 @@ button {
     cursor: pointer;
 }
 
-#new-education-button:hover {
+#new-education-button:hover,
+#new-experience-button:hover {
     scale: 1.05;
     background-color: #187FF5;
     color: white;
