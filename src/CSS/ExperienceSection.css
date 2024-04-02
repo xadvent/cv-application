@@ -1,0 +1,27 @@
+.section {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.banner {
+    text-align: center;
+    color: #0e374e;
+    width: 90%;
+    align-self: center;
+    background-color: #eff1f2;
+    padding: 5px 0px;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.experience-item {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    margin-left: 50px;
+    gap: 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
