@@ -1,4 +1,4 @@
-import '../CSS/TopDocument.css';
+import '../../styles/TopDocument.css';
 import Icon from '@mdi/react'
 import { mdiPhone, mdiEmailOutline, mdiMapMarkerOutline } from '@mdi/js';
 import propTypes from 'prop-types';

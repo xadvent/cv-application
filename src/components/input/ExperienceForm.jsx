@@ -1,6 +1,6 @@
 import { useState } from "react";
 import propTypes from 'prop-types';
-import CreateInput from "../General Functions/CreateInput";
+import CreateInput from "../general-components/CreateInput";
 
 export default function ExperienceList({ experience, setExperience }) {
     const [formVisible, setFormVisible] = useState(false);

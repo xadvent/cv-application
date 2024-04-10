@@ -1,4 +1,4 @@
-import "../CSS/ExperienceSection.css";
+import "../../styles/ExperienceSection.css";
 import propTypes from "prop-types";
 
 export default function ExperienceSection({ experience }) {

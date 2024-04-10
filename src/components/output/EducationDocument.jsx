@@ -1,4 +1,4 @@
-import '../CSS/educationDocument.css';
+import '../../styles/educationDocument.css';
 import propTypes from 'prop-types';
 
 export default function EducationDocument({ info }) {

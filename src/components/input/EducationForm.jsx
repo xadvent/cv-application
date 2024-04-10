@@ -1,7 +1,7 @@
-import '../../CSS/education.css'
+import '../../styles/education.css'
 import { useState } from "react";
 import propTypes from 'prop-types';
-import CreateInput from "../General Functions/CreateInput";
+import CreateInput from "../general-components/CreateInput";
 
 export default function EducationList({ allEducation, setAllEducation }) {
     const [formVisible, setFormVisible] = useState(false);

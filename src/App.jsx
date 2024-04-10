@@ -1,12 +1,12 @@
-import './CSS/App.css';
-import Card from './Cards/General Functions/Card';
-import EducationForm from './Cards/Education/EducationForm';
-import EducationDocument from './output/EducationDocument';
-import Form from './Cards/Personal Details/Form'
-import TopDocument from './output/TopDocument';
+import './styles/App.css';
+import Card from './components/general-components/Card';
+import EducationForm from './components/input/EducationForm';
+import EducationDocument from './components/output/EducationDocument';
+import Form from './components/input/Form'
+import TopDocument from './components/output/TopDocument';
 import { useState } from 'react';
-import ExperienceForm from './Cards/Experience/ExperienceForm';
-import ExperienceSection from './output/ExperienceSection';
+import ExperienceForm from './components/input/ExperienceForm';
+import ExperienceSection from './components/output/ExperienceSection';
 
 export default function App() {
   const [fullName, setFullName] = useState('');
