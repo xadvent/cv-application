@@ -6,6 +6,7 @@
 }
 
 #left-side {
+  justify-self: end;
   grid-column: 1;
   display: flex;
   flex-direction: column;
@@ -13,6 +14,7 @@
   justify-content: start;
   padding-top: 10px;
   gap: 10px;
+  z-index: 1;
 }
 
 #doc {
@@ -22,10 +24,11 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  width: 637.5px;
-  height: 825px;
+  width: 8.3in;
+  height: 11.7in;
   background-color: white;
   -webkit-box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.4); 
+  z-index: 0;
   box-shadow: 0px 2px 5px 1px rgba(0,0,0,0.4);
 }
 

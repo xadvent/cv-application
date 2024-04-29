@@ -22,7 +22,7 @@ export default function App() {
     fontWeight: 500,
   };
 
-  const { toPDF, targetRef } = usePDF({'filename': 'resume.pdf', 'method': 'open'})
+  const { toPDF, targetRef } = usePDF({ 'filename': 'resume.pdf', 'method': 'open' })
 
   return (
     <>
@@ -34,7 +34,7 @@ export default function App() {
             document.querySelectorAll('input').forEach(target => target.value = '');
           }}>Clear Resume</button>
 
-            <button style={buttonStyle} id='download' onClick={() => {toPDF()}}>Download Resume</button>
+          <button style={buttonStyle} id='download' onClick={() => { toPDF() }}>Download Resume</button>
 
         </Card>
 
