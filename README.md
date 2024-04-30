@@ -3,6 +3,9 @@
 ## Introduction
 This Resume Creator is a dynamic web application built with React, designed as a part of my learning journey through "The Odin Project". It allows users to quickly and efficiently create, customize, and download their resumes, showcasing the practical application of my skills in React development.
 
+## Project Page
+You can view the deployed application [here](https://resume-creator-ps.netlify.app/).
+
 ## Features
 - **Personal Details Input**: Users can input their full name, email, phone number, and address, which are dynamically rendered on the resume preview.
 - **Education Section**: Allows users to add multiple educational experiences, edit them, or remove them as needed.
@@ -13,9 +16,6 @@ This Resume Creator is a dynamic web application built with React, designed as a
 - **React**: For building the user interface.
 - **Vite**: As the frontend build tool for a faster and more efficient development experience.
 - **Netlify**: To host and serve the production build of the web application.
-
-## Project Page
-You can view the deployed application [here](https://resume-creator-ps.netlify.app/).
 
 ## Usage
 1. Fill in your personal details in the provided fields.
