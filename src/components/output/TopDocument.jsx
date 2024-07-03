@@ -8,12 +8,6 @@ export default function TopDocument({ name, email, phone, address }) {
         phone = '+1 (' + phone.slice(0, 3) + ') ' + phone.slice(3, 6) + '-' + phone.slice(6)
     }
 
-    const moveUp = {
-        top: -2 + 'px',
-        position: 'relative',
-        width: 20 +'px',
-    };
-
     return (
         <div id="header">
             <h1>{name}</h1>
@@ -21,7 +15,7 @@ export default function TopDocument({ name, email, phone, address }) {
                 {
                     email != '' ?
                         <div className="header-info">
-                            <Icon className='icon' path={mdiEmailOutline} style={moveUp} />
+                            <Icon className='icon' path={mdiEmailOutline} />
                             <p>{email}</p>
                         </div>
                         : null
@@ -29,7 +23,7 @@ export default function TopDocument({ name, email, phone, address }) {
                 {
                     phone != '' ?
                         <div className="header-info">
-                            <Icon className='icon' path={mdiPhone} style={moveUp} />
+                            <Icon className='icon' path={mdiPhone} />
                             <p>{phone}</p>
                         </div>
                         : null
@@ -37,7 +31,7 @@ export default function TopDocument({ name, email, phone, address }) {
                 {
                     address != '' ?
                         <div className="header-info">
-                            <Icon className='icon' path={mdiMapMarkerOutline} style={moveUp} />
+                            <Icon className='icon' path={mdiMapMarkerOutline} />
                             <p>{address}</p>
                         </div>
                         : null

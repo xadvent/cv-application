@@ -3,6 +3,10 @@
   position: relative;
 }
 
+html {
+  font-size: 16px; /* Base font size */
+}
+
 #root {
   background-color: #F3F4F6;
   display: grid;
@@ -11,3 +15,64 @@
   min-height: 100vh;
   min-width: 100vw;
 }
+
+#content {
+  width: 80%;
+}
+
+@media (max-width: 768px) {
+  #root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  html {
+    font-size: 14px; /* Adjust base font size for mobile */
+  }
+  #right-side {
+    scale: 0.8;
+  }
+}
+
+ @media (max-width: 480px) {
+   html {
+     font-size: 12px;
+   }
+
+   #header>* {
+     font-size: 1.5rem;
+   }
+
+   .header-info {
+    font-size: 0.65rem;
+   }
+
+   #education-document>.education-item,
+   .experience-item
+   {
+    font-size: 0.6rem;
+    display:flex;
+   }
+ }
+
+
+@media (max-width: 400px) {
+    .header-info {
+        font-size: 0.7rem;
+    } 
+    svg {
+      width: 0.7rem;
+      top: 1px;
+    }
+} 
+
+
+@media (max-width: 360px) {
+    .header-info {
+        font-size: 0.7rem;
+    } 
+    svg {
+      width: 0.7rem;
+    }
+} 
